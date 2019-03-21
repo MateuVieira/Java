@@ -7,7 +7,7 @@
 <title>Livros de Java, Amfroid, IPhone, Ruby, PHP e muito mais - Casa do Código</title>
 </head>
 <body>
-	<form action="/produtos" method="post">
+	<form action="casadocodigo/produtos" method="post">
 		<div>
 		<label>Titulo</label>
 		<input type="text" name="titulo">
