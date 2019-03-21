@@ -1,4 +1,4 @@
-package br.com.org.casadocodigo.loja.models;
+package br.com.casadocodigo.loja.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,14 +7,13 @@ import javax.persistence.Id;
 
 @Entity
 public class Produto {
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
 	private String titulo;
 	private String descricao;
-	private String paginas;
-	
+	private int paginas;
+
 	public String getTitulo() {
 		return titulo;
 	}
@@ -27,17 +26,16 @@ public class Produto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public String getPaginas() {
+	public int getPaginas() {
 		return paginas;
 	}
-	public void setPaginas(String paginas) {
+	public void setPaginas(int paginas) {
 		this.paginas = paginas;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Produto [titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas + "]";
 	}
-	
-	
+
 }

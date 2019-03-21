@@ -1,8 +1,8 @@
-package br.com.org.casadocodigo.loja.conf;
+package br.com.casadocodigo.loja.conf;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletInitializer{
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
@@ -18,5 +18,5 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 	protected String[] getServletMappings() {
 		return new String[] {"/"};
 	}
-	
+
 }

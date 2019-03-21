@@ -1,19 +1,22 @@
-package br.com.org.casadocodigo.loja.daos;
+package br.com.casadocodigo.loja.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import br.com.org.casadocodigo.loja.models.Produto;
+import br.com.casadocodigo.loja.models.Produto;
 
 @Repository
+@Transactional
 public class ProdutoDAO {
 
 	@PersistenceContext
-	private EntityManager em;
+	private EntityManager manager;
 	
 	public void gravar(Produto produto) {
-		em.persist(produto);
+		manager.persist(produto);
 	}
+	
 }
