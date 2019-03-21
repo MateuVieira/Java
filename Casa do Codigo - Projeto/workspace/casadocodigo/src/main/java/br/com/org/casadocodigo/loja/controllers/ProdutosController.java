@@ -8,6 +8,7 @@ public class ProdutosController {
 
 	@RequestMapping("/produtos/form")
 	public String form() {
+		System.out.println("/produtos/form");
 		return "produtos/form";
 	}
 	
