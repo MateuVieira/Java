@@ -10,11 +10,10 @@ public class ProdutosController {
 
 	@RequestMapping("/produtos/form")
 	public String form() {
-		System.out.println("/produtos/form");
 		return "produtos/form";
 	}
 	
-	@RequestMapping("/produtos/ok")
+	@RequestMapping("/produtos")
 	public String grava(Produto produto) {
 		System.out.println(produto);
 		
