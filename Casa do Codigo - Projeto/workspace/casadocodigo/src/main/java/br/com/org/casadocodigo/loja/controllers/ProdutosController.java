@@ -10,4 +10,13 @@ public class ProdutosController {
 	public String form() {
 		return "produtos/form";
 	}
+	
+	@RequestMapping("/produtos")
+	public String grava(String titulo, String descricao, int paginas) {
+		System.out.println(titulo);
+		System.out.println(descricao);
+		System.out.println(paginas);
+		
+		return "ok";
+	}
 }
