@@ -9,6 +9,6 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index() {
 		System.out.println("Entrando na Home da CDC");
-		return "home.jsp";
+		return "home";
 	}
 }
