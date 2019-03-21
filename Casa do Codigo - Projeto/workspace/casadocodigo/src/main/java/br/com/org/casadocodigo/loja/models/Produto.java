@@ -1,5 +1,8 @@
 package br.com.org.casadocodigo.loja.models;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Produto {
 
 	private String titulo;
