@@ -7,20 +7,20 @@
 <title>Livros de Java, Amfroid, IPhone, Ruby, PHP e muito mais - Casa do Código</title>
 </head>
 <body>
-	<form action="casadocodigo/produtos" method="post">
+	<form action="/casadocodigo/produtos" method="POST">
 		<div>
-		<label>Titulo</label>
-		<input type="text" name="titulo">
+			<label>Titulo</label>
+			<input type="text" name="titulo">
 		</div>
 		
 		<div>
-		<label>Descrição</label>
-		<textarea rows="10" cols="20" name="descricao"></textarea>
+			<label>Descrição</label>
+			<textarea rows="10" cols="20" name="descricao"></textarea>
 		</div>
 		
 		<div>
-		<label>Páginas</label>
-		<input type="text" name="paginas">
+			<label>Páginas</label>
+			<input type="text" name="paginas">
 		</div>
 		
 		<button type="submit">Cadastrar</button>
