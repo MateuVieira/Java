@@ -71,7 +71,7 @@ type="image/ico" />
 		</header>
 		<section class="buy-options clearfix">
 			<form action="/carrinho/add" method="post" class="container">
-				<input type="hidden" value="#{produto.id }" name="produtoId" />
+				<input type="hidden" value="${produto.id }" name="produtoId" />
 				<ul id="variants" class="clearfix">
 					<c:forEach items="" var="preco">
 						<li class="buy-option">
