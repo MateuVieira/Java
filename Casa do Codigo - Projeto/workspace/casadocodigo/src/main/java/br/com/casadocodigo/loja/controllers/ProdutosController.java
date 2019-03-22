@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.casadocodigo.loja.dao.ProdutoDAO;
+import br.com.casadocodigo.loja.infra.FileSaver;
 import br.com.casadocodigo.loja.models.Produto;
 import br.com.casadocodigo.loja.models.TipoPreco;
 import br.com.casadocodigo.loja.validation.ProdutoValidacao;
@@ -31,6 +32,9 @@ public class ProdutosController {
 
 	@Autowired
 	private ProdutoDAO dao;
+	
+	@Autowired
+	private FileSaver fileSaver;
 
 	@RequestMapping("/form")
 	public ModelAndView form(Produto produto) {
@@ -49,6 +53,8 @@ public class ProdutosController {
 //			dao.gravar(produto);
 //		}
 
+		
+		
 		if (result.hasErrors()) {
 			return form(produto);
 		}
