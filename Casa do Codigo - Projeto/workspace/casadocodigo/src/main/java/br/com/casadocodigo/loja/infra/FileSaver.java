@@ -3,7 +3,6 @@ package br.com.casadocodigo.loja.infra;
 import java.io.File;
 import java.io.IOException;
 
-import javax.management.RuntimeErrorException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +16,13 @@ public class FileSaver {
 	private HttpServletRequest request;
 
 	public String write(String baseFolder, MultipartFile file) {
+		
 		try {
 			String realPath = request.getServletContext().getRealPath("/" + baseFolder);
 			String pathName = realPath + "/" + file.getOriginalFilename();
 			file.transferTo(new File(pathName));
 
-			return pathName;
+			return baseFolder + "/" + file.getOriginalFilename();
 			
 		} catch (IllegalStateException | IOException e) {
 			e.printStackTrace();
