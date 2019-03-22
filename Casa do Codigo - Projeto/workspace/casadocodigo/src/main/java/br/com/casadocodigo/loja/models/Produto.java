@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Produto {
 
@@ -18,6 +20,7 @@ public class Produto {
 	private String titulo;
 	private String descricao;
 	private int paginas;
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Calendar dataLancamento;
 	@ElementCollection
 	private List<Preco> precos;
