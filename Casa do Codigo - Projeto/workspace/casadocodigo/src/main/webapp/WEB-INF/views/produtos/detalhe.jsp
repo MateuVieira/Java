@@ -73,7 +73,7 @@ type="image/ico" />
 			<form action="/carrinho/add" method="post" class="container">
 				<input type="hidden" value="${produto.id }" name="produtoId" />
 				<ul id="variants" class="clearfix">
-					<c:forEach items="" var="preco">
+					<c:forEach items="${produto.precos }" var="preco">
 						<li class="buy-option">
 						<input type="radio" name="tipoPreco" class="variant-radio" 
 							id="tipoPreco" value="${preco.tipo }" checked="checked" />
