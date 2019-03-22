@@ -75,7 +75,7 @@ public class ProdutosController {
 		return modelAndView;
 	}
 	
-	@RequestMapping("/detalhe")
+	@RequestMapping("/detalhe/{id}")
 	public ModelAndView detalhe(Integer id) {
 		ModelAndView modelAndView = new ModelAndView("/produtos/detalhe");
 		Produto produto = dao.find(id);
