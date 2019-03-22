@@ -24,14 +24,9 @@
 				<td>${produto.titulo }</td>
 				<td>${produto.descricao }</td>
 				<td>${produto.paginas }</td>
-				<td>${produto.dataLancamento }</td>
+				
 			</tr>
 		</c:forEach>
-		
-		<div>
-			<label>Sumário</label>
-			<input name="sumario" type="file">
-		</div>
 	</table>
 </body>
 </html>
