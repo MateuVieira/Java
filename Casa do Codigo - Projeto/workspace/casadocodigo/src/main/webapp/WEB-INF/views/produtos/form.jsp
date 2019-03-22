@@ -14,18 +14,18 @@
 	<form action="/casadocodigo/produtos" method="post">
 		<div>
 			<label>Título</label> 
-			<form:errors path="produto.titulo" />
 			<input type="text" name="titulo" />
+			<form:errors path="produto.titulo" />
 		</div>
 		<div>
 			<label>Descrição</label>
-			<form:errors path="produto.descricao" />
 			<textarea rows="10" cols="20" name="descricao"></textarea>
+			<form:errors path="produto.descricao" />
 		</div>
 		<div>
 			<label>Páginas</label> 
-			<form:errors path="produto.paginas" />
 			<input type="text" name="paginas" />
+			<form:errors path="produto.paginas" />
 		</div>
 		<c:forEach items="${tipos }" var="tipoPreco" varStatus="status">
 			<div>
