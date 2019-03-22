@@ -13,7 +13,7 @@ import br.com.casadocodigo.loja.models.Produto;
 import br.com.casadocodigo.loja.models.TipoPreco;
 
 @Controller
-@RequestMapping("/produto")
+@RequestMapping("/produtos")
 public class ProdutosController {
 
 	@Autowired
