@@ -13,7 +13,8 @@
 </head>
 <body>
 	<h1>Casa do Código</h1>
-	<form:form action="${s:mvcUrl('PC#gravar').build()}" method="POST" commandName="produto">
+	<form:form action="${s:mvcUrl('PC#gravar').build()}" method="POST" commandName="produto"
+		enctype="multipart/form-data">
 		<div>
 			<label>Título</label> 
 			<form:input  path="titulo" />
