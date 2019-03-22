@@ -11,21 +11,21 @@
 </head>
 <body>
 	<h1>Casa do Código</h1>
-	<form action="/casadocodigo/produtos" method="post">
+	<form:form action="/casadocodigo/produtos" method="post" commandName="produto">
 		<div>
 			<label>Título</label> 
 			<input type="text" name="titulo" />
-			<form:errors path="produto.titulo" />
+			<form:errors path="titulo" />
 		</div>
 		<div>
 			<label>Descrição</label>
 			<textarea rows="10" cols="20" name="descricao"></textarea>
-			<form:errors path="produto.descricao" />
+			<form:errors path="descricao" />
 		</div>
 		<div>
 			<label>Páginas</label> 
 			<input type="text" name="paginas" />
-			<form:errors path="produto.paginas" />
+			<form:errors path="paginas" />
 		</div>
 		<c:forEach items="${tipos }" var="tipoPreco" varStatus="status">
 			<div>
@@ -34,8 +34,7 @@
 					name="precos[${status.index }].tipo" value="${tipoPreco }">
 			</div>
 		</c:forEach>
-
 		<button type="submit">Cadastrar</button>
-	</form>
+	</form:form>
 </body>
 </html>
