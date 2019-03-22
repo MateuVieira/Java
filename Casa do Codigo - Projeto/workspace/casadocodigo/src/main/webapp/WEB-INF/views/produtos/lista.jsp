@@ -9,11 +9,10 @@
 	Casa do Código</title>
 </head>
 <body>
-	
 	<h1>Lista de Produtos</h1>
-
-	<div>${sucesso}</div>
-	
+	<br>
+	<h2>${sucesso}</h2>
+	<br>
 	<table>
 		<tr>
 			<td>Título</td>
@@ -21,11 +20,11 @@
 			<td>Páginas</td>
 		</tr>
 		<c:forEach items="${produtos }" var="produto">
-		<tr>
-			<td>${produto.titulo }</td>
-			<td>${produto.descricao }</td>
-			<td>${produto.paginas }</td>
-		</tr>
+			<tr>
+				<td>${produto.titulo }</td>
+				<td>${produto.descricao }</td>
+				<td>${produto.paginas }</td>
+			</tr>
 		</c:forEach>
 	</table>
 </body>
