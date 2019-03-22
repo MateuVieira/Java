@@ -23,6 +23,7 @@ public class JPAConfiguration {
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		factoryBean.setJpaVendorAdapter(vendorAdapter);
 		
+		System.out.println("factoryBean");
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setUsername("root");
 		dataSource.setPassword("root");
@@ -30,6 +31,7 @@ public class JPAConfiguration {
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		factoryBean.setDataSource(dataSource);
 		
+		System.out.println("Porperties");
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 		properties.setProperty("hibernate.show_sql", "true");
@@ -38,6 +40,7 @@ public class JPAConfiguration {
 		factoryBean.setJpaProperties(properties);
 		factoryBean.setPackagesToScan("br.com.casadocodigo.loja.models");
 		
+		System.out.println("Exit JPAConfiguration");
 		return factoryBean;
 	}
 

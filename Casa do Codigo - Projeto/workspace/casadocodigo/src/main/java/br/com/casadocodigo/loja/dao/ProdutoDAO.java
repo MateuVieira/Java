@@ -16,6 +16,7 @@ public class ProdutoDAO {
 	private EntityManager manager;
 	
 	public void gravar(Produto produto) {
+		System.out.println("ProdutoDAO");
 		manager.persist(produto);
 	}
 	
