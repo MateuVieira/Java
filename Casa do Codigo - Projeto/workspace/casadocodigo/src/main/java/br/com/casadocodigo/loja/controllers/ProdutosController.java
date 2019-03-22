@@ -74,4 +74,12 @@ public class ProdutosController {
 		modelAndView.addObject("produtos", produtos);
 		return modelAndView;
 	}
+	
+	@RequestMapping("/detalhe")
+	public ModelAndView detalhe(Integer id) {
+		ModelAndView modelAndView = new ModelAndView("/produtos/detalhe");
+		Produto produto = dao.find(id);
+		modelAndView.addObject("produto", produto);
+		return modelAndView;
+	}
 }
