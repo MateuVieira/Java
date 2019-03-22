@@ -32,7 +32,7 @@ public class ProdutosController {
 	private ProdutoDAO dao;
 
 	@RequestMapping("/form")
-	public ModelAndView form() {
+	public ModelAndView form(Produto produto) {
 		System.out.println("/produtos/form");
 		ModelAndView modelAndView = new ModelAndView("/produtos/form");
 		modelAndView.addObject("tipos", TipoPreco.values());
@@ -48,7 +48,7 @@ public class ProdutosController {
 //		}
 
 		if (result.hasErrors()) {
-			return form();
+			return form(produto);
 		}
 
 		dao.gravar(produto);
