@@ -53,12 +53,13 @@ public class ProdutosController {
 //			dao.gravar(produto);
 //		}
 
-		
-		
 		if (result.hasErrors()) {
 			return form(produto);
 		}
 
+		String path = fileSaver.write("arquivos-sumario", sumario);
+		produto.setSumarioPath(path);
+		
 		dao.gravar(produto);
 		
 		ModelAndView modelAndView = new ModelAndView("redirect:produtos");
