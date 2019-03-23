@@ -18,21 +18,26 @@ public class PagamentoController {
 
 	@Autowired
 	private CarrinhoCompras carrinho;
-	
+
+	@Autowired
 	private RestTemplate restTemplate;
-	
-	@RequestMapping(value="/finalizar" , method=RequestMethod.POST)
+
+	@RequestMapping(value = "/finalizar", method = RequestMethod.POST)
 	public ModelAndView fializar(RedirectAttributes model) {
-		
+
 		System.out.println(carrinho.getTotal());
-		
+
 		String uri = "http://book-payment.herokuaap.com/payment";
-		String response = restTemplate.postForObject(uri, new DadosPagamento(carrinho.getTotal())
-				, String.class);
-		
-		
-		model.addFlashAttribute("sucesso", response);
-		
+
+		try {
+			String response = restTemplate.postForObject(uri, new DadosPagamento(carrinho.getTotal()), String.class);
+			model.addFlashAttribute("sucesso", response);
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addFlashAttribute("sucesso", "Valor maior que o permitido");
+			return new ModelAndView("redirect:/produtos");
+		}
+
 		return new ModelAndView("redirect:/produtos");
 	}
 }
