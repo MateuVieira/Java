@@ -32,7 +32,7 @@ public class Produto {
 	private String descricao;
 	
 	@ManyToMany
-	private List<Categoria> categoria = new ArrayList<Categoria>();
+	private List<Categoria> categorias = new ArrayList<Categoria>();
 	
 	@Min(20)
 	private double preco;
