@@ -4,7 +4,9 @@ import java.io.Serializable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.WebApplicationContext;
@@ -18,7 +20,8 @@ import br.com.casadocodigo.loja.models.TipoPreco;
 
 @Controller
 @RequestMapping("/carrinho")
-@Scope(value=WebApplicationContext.SCOPE_REQUEST)
+@Scope(value=WebApplicationContext.SCOPE_REQUEST,
+		proxyMode=ScopedProxyMode.TARGET_CLASS)
 public class CarrinhoComprasControllers implements Serializable{
 
 	/**
@@ -50,4 +53,12 @@ public class CarrinhoComprasControllers implements Serializable{
 	public ModelAndView itens() {
 		return new ModelAndView("/carrinho/itens");
 	}
+	
+	@RequestMapping("/remover")
+	public ModelAndView remover(Integer produtoId, TipoPreco tipoPreco) {
+		carrinho.remover(produtoId, tipoPreco);
+		
+		return new ModelAndView("redirect:/carrinho");
+	}
+	
 }
