@@ -25,7 +25,7 @@ public class PagamentoController {
 	private RestTemplate restTemplate;
 
 	@RequestMapping(value = "/finalizar", method = RequestMethod.POST)
-	public Callable<ModelAndView> fializar(RedirectAttributes model) {
+	public Callable<ModelAndView> finalizar(RedirectAttributes model) {
 
 		return() -> {			
 			System.out.println(carrinho.getTotal());
