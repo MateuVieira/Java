@@ -101,6 +101,7 @@ public class AppWebConfiguration  extends WebMvcConfigurerAdapter{
 		
 	}
 	
+
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
