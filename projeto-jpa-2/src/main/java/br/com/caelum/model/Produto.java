@@ -38,6 +38,7 @@ public class Produto {
 	private double preco;
 
 	@ManyToMany
+	@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	private List<Categoria> categorias = new ArrayList<>();
 
 	@Valid
