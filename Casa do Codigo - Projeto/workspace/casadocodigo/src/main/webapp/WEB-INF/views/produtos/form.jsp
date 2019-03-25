@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,24 +16,51 @@
 <c:url value="/resources/css" var="cssPath" />
 <link rel="stylesheet" href="${cssPath }/bootstrap.min.css" />
 <link rel="stylesheet" href="${cssPath }/bootstrap-grid.css" />
-<style type="text/css">
-	body{
-		padding-bottom: 40px;
-	}
-</style>
-<nav class="navbar navbar-dark bg-dark">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="${s:mvcUrl('HC#index').build()}">Casa do Código</a>
-			<a class="navbar-brand" href="${s:mvcUrl('PC#listar').build() }">Lista de Produtos</a> 
-			<a class="navbar-brand" href="${s:mvcUrl('PC#form').build() }">Cadastro de Produtos</a>
-		</div>
-		<!-- /.navbar-collapse --> </nav>
 
 
-</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-white" href="${s:mvcUrl('HC#index').build()}">Casa do Código</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link text-white" href="${s:mvcUrl('PC#listar').build()}">Lista de Produtos</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link text-white"  href="${s:mvcUrl('PC#form').build()}">Cadastro de Produtos</a>
+      </li>
+    </ul>
+    <security:authorize access="hasRole('ROLE_ADMIN')">
+	    <ul class="nav navbar-nav ">
+	      	 <li class="nav-item">
+	      	 	<a class="nav-link text-white" href="#">
+	      	 		<security:authentication property="principal" var="usuario" />
+	      	 		Usuário: ${usuario.username }     
+	      	 	</a>
+	      	 </li>
+	     </ul>
+    </security:authorize>
+    <ul class="nav navbar-nav navbar-right">
+	      	 <li class="nav-item active text-white size-bar">
+	      	 	||
+	      	 </li>
+	      </ul>
+	<ul class="nav navbar-nav navbar-right">
+	      	 <li class="nav-item active">
+	      	 	<a class="flex-sm-fill text-sm-center nav-link active text-white" href="<c:url value="/logout" />">  Sair</a></span>
+	      	 </li>
+	      </ul>
+  </div>
+</nav>
+
+
 <body>
-
-	 
 	<h1 align="center">Cadastro de Produto</h1>
 	<form:form action="${s:mvcUrl('PC#gravar').build()}" method="POST"
 		commandName="produto" enctype="multipart/form-data" cssClass="container">

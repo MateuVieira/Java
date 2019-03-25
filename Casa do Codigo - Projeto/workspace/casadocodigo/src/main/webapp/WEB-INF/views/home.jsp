@@ -32,7 +32,7 @@
 
 	<header id="layout-header">
 		<div class="clearfix container">
-			
+			<a href="${s:mvcUrl('HC#index').build()}" id="logo"> <img src="" alt=""></a>
 			<div id="header-content">
 				<nav id="main-nav">
 					<ul class="clearfix">
