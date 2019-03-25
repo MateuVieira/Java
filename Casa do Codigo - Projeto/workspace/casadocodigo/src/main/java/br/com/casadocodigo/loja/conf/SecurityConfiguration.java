@@ -32,7 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	    .antMatchers("/produtos/**").permitAll()
 	    .antMatchers("/").permitAll()
 	    .anyRequest().authenticated()
-	    .and().formLogin();
+	    .and().formLogin().loginPage("/login").permitAll();
 	}
 	
 	 @Override
