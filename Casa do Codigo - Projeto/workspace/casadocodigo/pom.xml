@@ -17,8 +17,8 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<spring.version>4.1.0.RELEASE</spring.version>
-		<spring.security.version>4.0.0.RELEASE</spring.security.version>
+		<spring.version>4.3.17.RELEASE</spring.version>
+		<spring.security.version>4.2.6.RELEASE</spring.security.version>
 
 		<!-- https://docs.spring.io/spring-security/site/docs/4.2.6.RELEASE/reference/htmlsingle/#maven-bom -->
 		<!-- <spring.version>4.3.17.RELEASE</spring.version> -->
@@ -31,7 +31,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.1.0.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
@@ -109,7 +109,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>4.1.0.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -146,13 +146,21 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-			<version>4.3.1.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
+		
+		<!-- <dependency> -->
+			<!-- <groupId>org.springframework.integration</groupId> -->
+			<!-- <artifactId>spring-integration-jdbc</artifactId> -->
+			<!-- <version>${spring.version}</version> -->
+		<!-- </dependency> -->
+		
 		<dependency>
-			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-jdbc</artifactId>
-			<version>5.1.1.RELEASE</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>5.1.5.RELEASE</version>
 		</dependency>
+
 
 		<!-- dependencias do spring security -->
 		<dependency>

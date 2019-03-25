@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 
 <!DOCTYPE html>
 <html>
@@ -34,9 +36,13 @@
 			<div id="header-content">
 				<nav id="main-nav">
 					<ul class="clearfix">
-						<li><a class="navbar-brand" href="${s:mvcUrl('PC#listar').build() }">Lista de Produtos</a></li>
-						<li><a href="/cart" rel="nofollow">Carrinho</a></li>
+					<security:authorize access="hasRole('ROLE_ADMIN')">
+						<li><a href="${s:mvcUrl('PC#listar').build() }" rel="nofollow">Lista de Produtos</a></li>
+						<li><a href="${s:mvcUrl('PC#gravar').build() }" rel="nofollow">Cadastro de Produtos</a></li>
+					</security:authorize>
+						<li><a href="${s:mvcUrl('CCC#itens').build() }" rel="nofollow">Carrinho (${carrinhoCompras.quantidade })</a></li>
 						<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre Nós</a></li>
+						<li><a href="/pages/perguntas-frequentes" rel="nofollow">FAQ</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -61,9 +67,9 @@
 		
 		<ul class="clearfix book-collection">
 
-			<c:forEach items="${produtos}" var="produto">
+			<c:forEach items="${produtos }" var="produto">
 				<li>
-					<a href="${s:mvcUrl('PC#detalhe').arg(0,produto.id).build()}" class="block clearfix">
+					<a href="${s:mvcUrl('PC#detalhe').arg(0, produto.id).build() }" class="block clearfix">
 					<h2 class="product-title">${produto.titulo }</h2> 
 					<img width="143" height="202" src="https://cdn.shopify.com/s/files/1/0155/7645/products/java8-featured_large.png?v=1411490181" alt="Java 8 Prático" title="Java 8 Prático" /> 
 					<small class="buy-button">Compre</small>
@@ -102,11 +108,7 @@
 				</p>
 			</li>
 		</ul>
-
-
-
 	</section>
-
 
 	<footer id="layout-footer">
 		<div class="clearfix container">

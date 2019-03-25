@@ -21,7 +21,7 @@ public class HomeController {
 	@Cacheable(value="produtoHome")
 	public ModelAndView index() {
 		List<Produto> produtos = produtoDao.listar();
-		ModelAndView modelAndView = new ModelAndView("home");
+		ModelAndView modelAndView = new ModelAndView("Home");
 		modelAndView.addObject("produtos", produtos);
 		
 		return modelAndView;
