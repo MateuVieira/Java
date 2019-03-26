@@ -1,6 +1,7 @@
 package br.com.casadocodigo.loja.dao;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
@@ -43,9 +44,19 @@ public class ProdutoDAOTest {
 		livrosImpressos.stream().forEach(produtoDao::gravar);
 		livrosEbook.stream().forEach(produtoDao::gravar);
 		
+		List<Produto> produtos = new ArrayList<>();
+		produtos.addAll(livrosImpressos);
+		produtos.addAll(livrosEbook);
+		
+		
 
 		BigDecimal valor = produtoDao.somaPrecosPorTipo(TipoPreco.EBOOK);
+		List<Produto> valor2 = produtoDao.listar();
+		
 		Assert.assertEquals(new BigDecimal(40).setScale(2), valor);
-
+		Assert.assertEquals(produtos, valor2);
+		
 	}
+	
+	
 }
