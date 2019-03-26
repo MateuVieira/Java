@@ -17,29 +17,19 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableTransactionManagement
-@Configuration
 public class JPAConfiguration {
 
 	
 
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
-		System.out.println("1");
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-		System.out.println("2");
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		factoryBean.setJpaVendorAdapter(vendorAdapter);
-		System.out.println("3");
-		System.out.println("factoryBean");
 		factoryBean.setDataSource(dataSource);
-		
-		System.out.println("Porperties");
 		Properties properties = aditionalProperties();
-		
 		factoryBean.setJpaProperties(properties);
 		factoryBean.setPackagesToScan("br.com.casadocodigo.loja.models");
-		
-		System.out.println("Exit JPAConfiguration");
 		return factoryBean;
 	}
 
