@@ -18,7 +18,8 @@
 								<fmt:message key="menu.sobre" />
 							</a>
 						</li>
-						<li><a href="/pages/perguntas-frequentes" rel="nofollow">FAQ</a></li>
+						<li><a href="?locale=pt_BR" rel="nofollow"><fmt:message key="menu.pt" /></a></li>
+						<li><a href="?locale=en_US" rel="nofollow"><fmt:message key="menu.en" /></a></li>
 					</ul>
 					
 				</nav>
