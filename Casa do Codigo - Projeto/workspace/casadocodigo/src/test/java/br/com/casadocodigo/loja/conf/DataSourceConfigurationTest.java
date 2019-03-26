@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-
 public class DataSourceConfigurationTest {
 
 	@Bean
@@ -15,9 +14,9 @@ public class DataSourceConfigurationTest {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setUsername("root");
 		dataSource.setPassword("root");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/casadocodigo_test?useTimezone=true&serverTimezone=UTC&sslMode=DISABLED ");
-//        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setUrl(
+				"jdbc:mysql://localhost:3306/casadocodigo_test?useTimezone=true&serverTimezone=UTC&sslMode=DISABLED ");
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        return dataSource;
+		return dataSource;
 	}
 }
