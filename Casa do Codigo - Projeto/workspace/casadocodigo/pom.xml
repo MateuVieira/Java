@@ -179,6 +179,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 			<version>${spring.version}</version>
+			<!-- <version>5.1.5.RELEASE</version> -->
 		</dependency>
 
 		<!-- <dependency> -->
@@ -243,12 +244,6 @@
 			<version>1.4.7</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			<version>4.3.1.RELEASE</version>
-		</dependency>
-
 		<!-- dependencias Postgresql -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -256,6 +251,12 @@
 			<version>9.4-1201-jdbc41</version>
 		</dependency>
 
+		<!-- dependencias Test -> ComboPooledDataSource -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
 	</dependencies>
 
 
