@@ -22,18 +22,20 @@ public class JPAConfiguration {
 	
 
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory
+	(DataSource dataSource, Properties aditionalProperties) {
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		factoryBean.setJpaVendorAdapter(vendorAdapter);
 		factoryBean.setDataSource(dataSource);
-		Properties properties = aditionalProperties();
+		Properties properties = aditionalProperties;
 		factoryBean.setJpaProperties(properties);
 		factoryBean.setPackagesToScan("br.com.casadocodigo.loja.models");
 		return factoryBean;
 	}
 
-	
+	@Bean
+	@Profile("dev")
 	public Properties aditionalProperties() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
@@ -52,6 +54,8 @@ public class JPAConfiguration {
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		return dataSource;
 	}
+	
+	
 
 	@Bean
 	public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
