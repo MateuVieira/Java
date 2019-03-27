@@ -89,8 +89,5 @@ public class ProdutosController {
 		return modelAndView;
 	}
 	
-	@ExceptionHandler(NoResultException.class)
-	public String trataDetalheNaoEncontrado() {
-		return "error";
-	}
+	
 }
